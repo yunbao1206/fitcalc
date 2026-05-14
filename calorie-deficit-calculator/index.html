@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calorie Deficit Calculator - Safe Weight Loss | FitCalc</title>
+  <meta name="description" content="Free calorie deficit calculator for safe weight loss. Calculate your daily calorie target based on TDEE, goal weight, and preferred deficit speed.">
+  <meta name="keywords" content="calorie deficit calculator, weight loss calculator, how many calories to lose weight, TDEE deficit, safe calorie deficit">
+  <link rel="canonical" href="https://fit.wiseclick.site/calorie-deficit-calculator/">
+  <meta property="og:title" content="Calorie Deficit Calculator - Safe Weight Loss">
+  <meta property="og:description" content="Calculate your ideal calorie deficit for safe, sustainable weight loss. Free and easy to use.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calorie Deficit Calculator",
+    "description": "Free calorie deficit calculator for safe weight loss",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fit.wiseclick.site/" },
+      { "@type": "ListItem", "position": 2, "name": "Calorie Deficit Calculator", "item": "https://fit.wiseclick.site/calorie-deficit-calculator/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is a safe calorie deficit for weight loss?", "acceptedAnswer": { "@type": "Answer", "text": "A safe calorie deficit is typically 250-750 calories per day (0.25-0.75 kg per week). A moderate deficit of 500 calories per day leads to about 0.5 kg of weight loss per week, which is sustainable for most people." } },
+      { "@type": "Question", "name": "How many calories should I eat to lose weight?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on your TDEE (Total Daily Energy Expenditure). Subtracting 500 calories from your TDEE creates a deficit that leads to approximately 0.5 kg of weight loss per week. Women should not eat below 1,200 calories and men should not eat below 1,500 calories per day." } },
+      { "@type": "Question", "name": "How long does it take to lose weight with a calorie deficit?", "acceptedAnswer": { "@type": "Answer", "text": "Since 1 kg of body fat equals approximately 7,700 kcal, a daily deficit of 500 calories (3,500 per week) results in about 0.5 kg lost per week. The exact time depends on your starting weight, goal weight, and chosen deficit speed." } },
+      { "@type": "Question", "name": "Can I eat too few calories?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Eating too few calories can slow your metabolism, cause nutrient deficiencies, and lead to muscle loss. Women should not go below 1,200 calories and men should not go below 1,500 calories per day without medical supervision." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        FitCalc
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/tdee-calculator/">TDEE</a></li>
+        <li><a href="/bmi-calculator/">BMI</a></li>
+        <li><a href="/calorie-deficit-calculator/" class="active">Calorie Deficit</a></li>
+        <li><a href="/macro-calculator/">Macro</a></li>
+        <li><a href="/body-fat-calculator/">Body Fat</a></li>
+        <li><a href="/protein-calculator/">Protein</a></li>
+        <li><a href="/water-intake-calculator/">Water Intake</a></li>
+        <li><a href="/bmr-calculator/">BMR</a></li>
+        <li><a href="/ideal-weight-calculator/">Ideal Weight</a></li>
+        <li><a href="/calories-burned-calculator/">Calories Burned</a></li>
+      </ul>
+    </div>
+  </header>
+  <main>
+    <nav class="breadcrumb"><a href="/">Home</a> / <span>Calorie Deficit Calculator</span></nav>
+    <div class="calc-page">
+      <h1>Calorie Deficit Calculator</h1>
+      <p class="subtitle">Calculate your ideal daily calorie target for safe and sustainable weight loss.</p>
+      <p style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.5rem">FitCalc provides estimates only, not medical advice. Consult a healthcare professional.</p>
+      <div class="calc-tool">
+        <form class="calc-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" value="30" min="18" max="100">
+          </div>
+          <div class="form-group">
+            <label for="height">Height (cm)</label>
+            <input type="number" id="height" value="170" min="100" max="250">
+          </div>
+          <div class="form-group">
+            <label for="weight">Weight (kg)</label>
+            <input type="number" id="weight" value="70" min="30" max="300">
+          </div>
+          <div class="form-group">
+            <label for="activity">Activity Level</label>
+            <select id="activity">
+              <option value="1.2">Sedentary (little or no exercise)</option>
+              <option value="1.375">Light (1-3 days/week)</option>
+              <option value="1.55" selected>Moderate (3-5 days/week)</option>
+              <option value="1.725">Heavy (6-7 days/week)</option>
+              <option value="1.9">Athlete (2x per day)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="goal-weight">Goal Weight (kg)</label>
+            <input type="number" id="goal-weight" value="65" min="30" max="300">
+          </div>
+          <div class="form-group full-width">
+            <label for="deficit-speed">Deficit Speed</label>
+            <select id="deficit-speed">
+              <option value="0.25">Conservative (0.25 kg/week)</option>
+              <option value="0.5" selected>Moderate (0.5 kg/week)</option>
+              <option value="0.75">Aggressive (0.75 kg/week)</option>
+            </select>
+          </div>
+          <button type="button" class="btn-calculate" onclick="calculate()">Calculate Deficit</button>
+        </form>
+        <div class="calc-results" id="results">
+          <div class="result-highlight">
+            <div class="label">Daily Calorie Target</div>
+            <div class="value" id="calorie-target">0 kcal</div>
+          </div>
+          <div class="result-details">
+            <div class="result-item"><div class="label">Current TDEE</div><div class="value" id="tdee-value">0 kcal</div></div>
+            <div class="result-item"><div class="label">Calorie Deficit</div><div class="value" id="deficit-value">0 kcal</div></div>
+            <div class="result-item"><div class="label">Weight to Lose</div><div class="value" id="weight-to-lose">0 kg</div></div>
+            <div class="result-item"><div class="label">Estimated Time</div><div class="value" id="time-estimate">0 weeks</div></div>
+            <div class="result-item full-width" style="grid-column:1/-1;background:var(--primary-light);text-align:center">
+              <div class="label" style="color:var(--primary);font-weight:600">Minimum Safe Intake</div>
+              <div class="value" id="min-calorie-note" style="font-size:0.95rem"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="seo-content">
+        <div class="seo-block">
+          <h2>What Is a Calorie Deficit?</h2>
+          <p>A calorie deficit occurs when you consume fewer calories than your body burns. Your Total Daily Energy Expenditure (TDEE) represents the total calories you burn each day through basal metabolic rate, physical activity, and digestion. Eating below your TDEE forces your body to use stored fat for energy, resulting in weight loss over time.</p>
+          <p>Since 1 kg of body fat contains approximately 7,700 kcal, creating a daily deficit of 500 calories (3,500 kcal per week) leads to roughly 0.5 kg of fat loss per week.</p>
+        </div>
+        <div class="seo-block">
+          <h2>Choosing the Right Deficit Speed</h2>
+          <ul>
+            <li><strong>Conservative (0.25 kg/week)</strong> — Best for those close to their goal weight or who prefer a gradual approach. Daily deficit of approximately 275 kcal.</li>
+            <li><strong>Moderate (0.5 kg/week)</strong> — The most commonly recommended rate. A daily deficit of about 550 kcal balances steady progress with sustainability.</li>
+            <li><strong>Aggressive (0.75 kg/week)</strong> — For those with more weight to lose who want faster results. Daily deficit of approximately 825 kcal. Requires careful attention to nutrition.</li>
+          </ul>
+        </div>
+        <div class="seo-block full-width">
+          <h2>Frequently Asked Questions</h2>
+          <h3>What is a safe calorie deficit for weight loss?</h3>
+          <p>A safe calorie deficit is typically 250-750 calories per day (0.25-0.75 kg per week). A moderate deficit of 500 calories per day leads to about 0.5 kg of weight loss per week, which is sustainable for most people.</p>
+          <h3>How many calories should I eat to lose weight?</h3>
+          <p>It depends on your TDEE. Subtracting 500 calories from your TDEE creates a deficit that leads to approximately 0.5 kg of weight loss per week. Women should not eat below 1,200 calories and men should not eat below 1,500 calories per day.</p>
+          <h3>How long does it take to lose weight with a calorie deficit?</h3>
+          <p>Since 1 kg of body fat equals approximately 7,700 kcal, a daily deficit of 500 calories (3,500 per week) results in about 0.5 kg lost per week. The exact time depends on your starting weight, goal weight, and chosen deficit speed.</p>
+          <h3>Can I eat too few calories?</h3>
+          <p>Yes. Eating too few calories can slow your metabolism, cause nutrient deficiencies, and lead to muscle loss. Women should not go below 1,200 calories and men should not go below 1,500 calories per day without medical supervision.</p>
+        </div>
+        <div class="seo-block full-width" style="background:var(--bg-secondary);border-style:dashed;margin-top:1rem">
+          <h2>Disclaimer</h2>
+          <p>This calculator is for <strong>educational purposes only</strong> and provides estimates based on standard formulas. Results are not medical advice and should not be used for diagnosis or treatment. Individual calorie needs vary based on health conditions, medications, and other factors. Always consult a qualified healthcare provider before starting any weight loss program or significantly changing your diet.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 FitCalc by WiseClick. All rights reserved.</p>
+    </div>
+  </footer>
+<script>
+function calculate() {
+  const gender = document.getElementById('gender').value;
+  const age = parseInt(document.getElementById('age').value) || 30;
+  const height = parseFloat(document.getElementById('height').value) || 170;
+  const weight = parseFloat(document.getElementById('weight').value) || 70;
+  const activity = parseFloat(document.getElementById('activity').value) || 1.55;
+  const goalWeight = parseFloat(document.getElementById('goal-weight').value) || 65;
+  const deficitSpeed = parseFloat(document.getElementById('deficit-speed').value) || 0.5;
+
+  // Mifflin-St Jeor equation for BMR
+  let bmr;
+  if (gender === 'male') {
+    bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+  } else {
+    bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+  }
+
+  const tdee = Math.round(bmr * activity);
+
+  // Weekly deficit: speed (kg/week) x 7700 kcal/kg
+  const weeklyDeficit = deficitSpeed * 7700;
+  const dailyDeficit = Math.round(weeklyDeficit / 7);
+
+  // Calorie target with minimum safety floor
+  const minCal = gender === 'male' ? 1500 : 1200;
+  let calorieTarget = tdee - dailyDeficit;
+  let capped = false;
+  if (calorieTarget < minCal) {
+    calorieTarget = minCal;
+    capped = true;
+  }
+
+  const actualDeficit = tdee - calorieTarget;
+
+  // Weight to lose and time estimate
+  const weightToLose = Math.max(0, weight - goalWeight);
+  let weeksToGoal;
+  if (weightToLose > 0 && actualDeficit > 0) {
+    weeksToGoal = Math.ceil((weightToLose * 7700) / (actualDeficit * 7));
+  } else {
+    weeksToGoal = 0;
+  }
+
+  // Update DOM
+  document.getElementById('tdee-value').textContent = tdee.toLocaleString() + ' kcal';
+  document.getElementById('deficit-value').textContent = actualDeficit.toLocaleString() + ' kcal';
+  document.getElementById('calorie-target').textContent = calorieTarget.toLocaleString() + ' kcal';
+  document.getElementById('weight-to-lose').textContent = weightToLose.toFixed(1) + ' kg';
+  document.getElementById('time-estimate').textContent = weeksToGoal > 0 ? weeksToGoal + ' weeks' : 'Goal reached';
+
+  const minNote = gender === 'male'
+    ? 'Never go below 1,500 calories/day for men without medical supervision.'
+    : 'Never go below 1,200 calories/day for women without medical supervision.';
+  document.getElementById('min-calorie-note').textContent = minNote;
+
+  if (capped) {
+    document.getElementById('min-calorie-note').textContent += ' Your target has been adjusted to the minimum safe level.';
+  }
+
+  document.getElementById('results').classList.add('visible');
+}
+calculate();
+</script>
+
+  <div class="cookie-banner" id="cookie-banner">
+    <p>We use cookies for analytics and advertising. By continuing, you agree to our <a href="/privacy/">Privacy Policy</a>.</p>
+    <button class="cookie-btn" onclick="document.getElementById('cookie-banner').classList.add('hidden');localStorage.setItem('cookie-consent','1')">Accept</button>
+  </div>
+  <script>if(localStorage.getItem('cookie-consent'))document.getElementById('cookie-banner').classList.add('hidden');</script>
+</body>
+</html>
