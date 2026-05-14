@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Body Fat Calculator - U.S. Navy Method | FitCalc</title>
+  <meta name="description" content="Free body fat calculator using the U.S. Navy method. Estimate your body fat percentage based on height, neck, waist, and hip measurements.">
+  <meta name="keywords" content="body fat calculator, navy method body fat, body fat percentage calculator, lean body mass calculator, fat mass calculator">
+  <link rel="canonical" href="https://fit.wiseclick.site/body-fat-calculator/">
+  <meta property="og:title" content="Body Fat Calculator - U.S. Navy Method">
+  <meta property="og:description" content="Calculate your body fat percentage using the U.S. Navy method. Free and easy to use.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Body Fat Calculator",
+    "description": "Free body fat percentage calculator using the U.S. Navy method",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fit.wiseclick.site/" },
+      { "@type": "ListItem", "position": 2, "name": "Body Fat Calculator", "item": "https://fit.wiseclick.site/body-fat-calculator/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How accurate is the U.S. Navy body fat method?", "acceptedAnswer": { "@type": "Answer", "text": "The U.S. Navy method is reasonably accurate for most people, typically within 3-4% of more precise methods like DEXA scans. It works best for individuals within normal body fat ranges." } },
+      { "@type": "Question", "name": "What is a healthy body fat percentage?", "acceptedAnswer": { "@type": "Answer", "text": "For men, 14-17% is considered fitness level and 18-24% is average. For women, 21-24% is fitness level and 25-31% is average. Essential fat levels are 2-5% for men and 10-13% for women." } },
+      { "@type": "Question", "name": "How do I measure neck and waist circumference correctly?", "acceptedAnswer": { "@type": "Answer", "text": "Measure neck at the narrowest point, just below the larynx. Measure waist at the navel for men, and at the narrowest point for women. For hips (women only), measure at the widest point. Use a flexible tape measure and keep it snug but not tight." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+        FitCalc
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/tdee-calculator/">TDEE</a></li>
+        <li><a href="/bmi-calculator/">BMI</a></li>
+        <li><a href="/calorie-deficit-calculator/">Calorie Deficit</a></li>
+        <li><a href="/macro-calculator/">Macro</a></li>
+        <li><a href="/body-fat-calculator/" class="active">Body Fat</a></li>
+        <li><a href="/protein-calculator/">Protein</a></li>
+        <li><a href="/water-intake-calculator/">Water Intake</a></li>
+        <li><a href="/bmr-calculator/">BMR</a></li>
+        <li><a href="/ideal-weight-calculator/">Ideal Weight</a></li>
+        <li><a href="/calories-burned-calculator/">Calories Burned</a></li>
+      </ul>
+    </div>
+  </header>
+  <main>
+    <nav class="breadcrumb"><a href="/">Home</a> / <span>Body Fat Calculator</span></nav>
+    <div class="calc-page">
+      <h1>Body Fat Calculator - U.S. Navy Method</h1>
+      <p class="subtitle">Estimate your body fat percentage using the U.S. Navy tape measure method.</p>
+      <p style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.5rem">FitCalc provides estimates only, not medical advice. Consult a healthcare professional.</p>
+      <div class="calc-tool">
+        <form class="calc-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender" onchange="toggleHip()">
+              <option value="male" selected>Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="height">Height (cm)</label>
+            <input type="number" id="height" value="170" min="100" max="250">
+          </div>
+          <div class="form-group">
+            <label for="neck">Neck Circumference (cm)</label>
+            <input type="number" id="neck" value="38" min="20" max="80">
+          </div>
+          <div class="form-group">
+            <label for="waist">Waist Circumference (cm)</label>
+            <input type="number" id="waist" value="85" min="50" max="200">
+          </div>
+          <div class="form-group conditional" id="hip-group">
+            <label for="hip">Hip Circumference (cm)</label>
+            <input type="number" id="hip" value="95" min="50" max="200">
+          </div>
+          <div class="form-group">
+            <label for="weight">Weight (kg)</label>
+            <input type="number" id="weight" value="70" min="30" max="300">
+          </div>
+          <button type="button" class="btn-calculate" onclick="calculate()">Calculate Body Fat</button>
+        </form>
+        <div class="calc-results" id="results">
+          <div class="result-highlight">
+            <div class="label">Body Fat Percentage</div>
+            <div class="value" id="bf-percent">0%</div>
+          </div>
+          <div class="result-details">
+            <div class="result-item"><div class="label">Body Fat Category</div><div class="value" id="bf-category">-</div></div>
+            <div class="result-item"><div class="label">Lean Body Mass</div><div class="value" id="lean-mass">0 kg</div></div>
+            <div class="result-item"><div class="label">Fat Mass</div><div class="value" id="fat-mass">0 kg</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="seo-content">
+        <div class="seo-block">
+          <h2>How the U.S. Navy Method Works</h2>
+          <p>The U.S. Navy body fat estimation method uses simple tape measurements of your neck, waist, and height (plus hip circumference for women) to estimate body fat percentage. Developed by the U.S. Navy for assessing military personnel fitness, this method is widely used because it requires only a measuring tape.</p>
+          <h3>For Men</h3>
+          <p>Body Fat % = 495 / (1.0324 - 0.19077 x log10(waist - neck) + 0.15456 x log10(height)) - 450</p>
+          <h3>For Women</h3>
+          <p>Body Fat % = 495 / (1.29579 - 0.35004 x log10(waist + hip - neck) + 0.22100 x log10(height)) - 450</p>
+        </div>
+        <div class="seo-block">
+          <h2>Body Fat Categories</h2>
+          <ul>
+            <li><strong>Essential Fat</strong> — Men: 2-5%, Women: 10-13%. The minimum fat needed for basic physiological function.</li>
+            <li><strong>Athletic</strong> — Men: 6-13%, Women: 14-20%. Typical for athletes and very fit individuals.</li>
+            <li><strong>Fitness</strong> — Men: 14-17%, Women: 21-24%. A good fitness level for most active adults.</li>
+            <li><strong>Average</strong> — Men: 18-24%, Women: 25-31%. The normal range for the general population.</li>
+            <li><strong>Obese</strong> — Men: 25%+, Women: 32%+. Above the healthy range, associated with increased health risks.</li>
+          </ul>
+        </div>
+        <div class="seo-block full-width">
+          <h2>Frequently Asked Questions</h2>
+          <h3>How accurate is the U.S. Navy body fat method?</h3>
+          <p>The U.S. Navy method is reasonably accurate for most people, typically within 3-4% of more precise methods like DEXA scans. It works best for individuals within normal body fat ranges.</p>
+          <h3>What is a healthy body fat percentage?</h3>
+          <p>For men, 14-17% is considered fitness level and 18-24% is average. For women, 21-24% is fitness level and 25-31% is average. Essential fat levels are 2-5% for men and 10-13% for women.</p>
+          <h3>How do I measure neck and waist circumference correctly?</h3>
+          <p>Measure neck at the narrowest point, just below the larynx. Measure waist at the navel for men, and at the narrowest point for women. For hips (women only), measure at the widest point. Use a flexible tape measure and keep it snug but not tight.</p>
+        </div>
+        <div class="seo-block full-width" style="background:var(--bg-secondary);border-style:dashed;margin-top:1rem">
+          <h2>Disclaimer</h2>
+          <p>This calculator provides estimates based on the U.S. Navy body fat formula and is for <strong>educational purposes only</strong>. FitCalc provides estimates only, not medical advice. Results may vary from clinical measurements such as DEXA or hydrostatic weighing. Consult a healthcare professional for an accurate assessment of your body composition.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 FitCalc by WiseClick. All rights reserved.</p>
+    </div>
+  </footer>
+<script>
+function toggleHip() {
+  var gender = document.getElementById('gender').value;
+  var hipGroup = document.getElementById('hip-group');
+  if (gender === 'female') {
+    hipGroup.classList.add('show');
+  } else {
+    hipGroup.classList.remove('show');
+  }
+}
+
+function calculate() {
+  var gender = document.getElementById('gender').value;
+  var height = parseFloat(document.getElementById('height').value) || 170;
+  var neck = parseFloat(document.getElementById('neck').value) || 38;
+  var waist = parseFloat(document.getElementById('waist').value) || 85;
+  var hip = parseFloat(document.getElementById('hip').value) || 95;
+  var weight = parseFloat(document.getElementById('weight').value) || 70;
+
+  var bf;
+  if (gender === 'male') {
+    bf = 495 / (1.0324 - 0.19077 * Math.log10(waist - neck) + 0.15456 * Math.log10(height)) - 450;
+  } else {
+    bf = 495 / (1.29579 - 0.35004 * Math.log10(waist + hip - neck) + 0.22100 * Math.log10(height)) - 450;
+  }
+
+  bf = Math.max(0, bf);
+  var fatMass = weight * bf / 100;
+  var leanMass = weight - fatMass;
+
+  var category;
+  if (gender === 'male') {
+    if (bf >= 2 && bf <= 5) category = 'Essential';
+    else if (bf >= 6 && bf <= 13) category = 'Athletic';
+    else if (bf >= 14 && bf <= 17) category = 'Fitness';
+    else if (bf >= 18 && bf <= 24) category = 'Average';
+    else if (bf >= 25) category = 'Obese';
+    else category = 'Below Essential';
+  } else {
+    if (bf >= 10 && bf <= 13) category = 'Essential';
+    else if (bf >= 14 && bf <= 20) category = 'Athletic';
+    else if (bf >= 21 && bf <= 24) category = 'Fitness';
+    else if (bf >= 25 && bf <= 31) category = 'Average';
+    else if (bf >= 32) category = 'Obese';
+    else category = 'Below Essential';
+  }
+
+  document.getElementById('bf-percent').textContent = bf.toFixed(1) + '%';
+  document.getElementById('bf-category').textContent = category;
+  document.getElementById('lean-mass').textContent = leanMass.toFixed(1) + ' kg';
+  document.getElementById('fat-mass').textContent = fatMass.toFixed(1) + ' kg';
+  document.getElementById('results').classList.add('visible');
+}
+calculate();
+</script>
+
+  <div class="cookie-banner" id="cookie-banner">
+    <p>We use cookies for analytics and advertising. By continuing, you agree to our <a href="/privacy/">Privacy Policy</a>.</p>
+    <button class="cookie-btn" onclick="document.getElementById('cookie-banner').classList.add('hidden');localStorage.setItem('cookie-consent','1')">Accept</button>
+  </div>
+  <script>if(localStorage.getItem('cookie-consent'))document.getElementById('cookie-banner').classList.add('hidden');</script>
+</body>
+</html>
