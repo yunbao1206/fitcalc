@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About FitCalc - Free Health & Fitness Calculators</title>
+  <meta name="description" content="Learn about FitCalc — free, science-based health and fitness calculators to help you understand your body and reach your goals.">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        FitCalc
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/tdee-calculator/">TDEE</a></li>
+        <li><a href="/bmi-calculator/">BMI</a></li>
+        <li><a href="/calorie-deficit-calculator/">Calorie Deficit</a></li>
+        <li><a href="/macro-calculator/">Macro</a></li>
+        <li><a href="/body-fat-calculator/">Body Fat</a></li>
+        <li><a href="/protein-calculator/">Protein</a></li>
+        <li><a href="/water-intake-calculator/">Water Intake</a></li>
+        <li><a href="/bmr-calculator/">BMR</a></li>
+        <li><a href="/ideal-weight-calculator/">Ideal Weight</a></li>
+        <li><a href="/calories-burned-calculator/">Calories Burned</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumb">
+      <a href="/">Home</a> / <span>About</span>
+    </nav>
+
+    <div class="calc-page">
+      <h1>About FitCalc</h1>
+
+      <div class="seo-block full-width">
+        <h2>Our Mission</h2>
+        <p>FitCalc exists to help people understand their health metrics with free, science-based tools. We believe everyone deserves access to clear, accurate health information — no sign-ups, no subscriptions, no hidden costs. Whether you're starting a fitness journey, managing your weight, or simply curious about your body's needs, our calculators give you the numbers you need instantly.</p>
+
+        <h2>What We Offer</h2>
+        <p>FitCalc provides 10 free health and fitness calculators, each built on established scientific formulas:</p>
+        <ul>
+          <li><a href="/tdee-calculator/"><strong>TDEE Calculator</strong></a> — Estimate your Total Daily Energy Expenditure to understand how many calories you burn each day</li>
+          <li><a href="/bmi-calculator/"><strong>BMI Calculator</strong></a> — Calculate your Body Mass Index and see where you fall on the standard scale</li>
+          <li><a href="/calorie-deficit-calculator/"><strong>Calorie Deficit Calculator</strong></a> — Plan a safe and effective calorie deficit for weight loss</li>
+          <li><a href="/macro-calculator/"><strong>Macro Calculator</strong></a> — Determine your optimal balance of proteins, carbs, and fats</li>
+          <li><a href="/body-fat-calculator/"><strong>Body Fat Calculator</strong></a> — Estimate your body fat percentage using simple measurements</li>
+          <li><a href="/protein-calculator/"><strong>Protein Calculator</strong></a> — Find out how much protein you need based on your goals and activity level</li>
+          <li><a href="/water-intake-calculator/"><strong>Water Intake Calculator</strong></a> — Calculate your recommended daily water intake</li>
+          <li><a href="/bmr-calculator/"><strong>BMR Calculator</strong></a> — Find your Basal Metabolic Rate to understand your calorie needs at rest</li>
+          <li><a href="/ideal-weight-calculator/"><strong>Ideal Weight Calculator</strong></a> — See estimated ideal weight ranges based on multiple scientific formulas</li>
+          <li><a href="/calories-burned-calculator/"><strong>Calories Burned Calculator</strong></a> — Estimate calories burned during various exercises and activities</li>
+        </ul>
+
+        <h2>Our Principles</h2>
+        <ul>
+          <li><strong>Free Forever</strong> — All calculators are completely free to use. No premium tiers, no paywalls, no email required.</li>
+          <li><strong>Privacy First</strong> — Every calculation runs directly in your browser. Your health data never leaves your device. We collect zero personal health information.</li>
+          <li><strong>Science-Based Formulas</strong> — Our calculators use well-established formulas such as Mifflin-St Jeor, Harris-Benedict, and Jackson-Pollock, published in peer-reviewed research.</li>
+          <li><strong>No Medical Claims</strong> — FitCalc provides estimates for educational purposes. We do not diagnose, treat, or replace professional medical advice.</li>
+        </ul>
+
+        <h2>Important Disclaimer</h2>
+        <p>FitCalc is <strong>NOT</strong> a medical device. It is <strong>NOT</strong> a substitute for professional medical advice, diagnosis, or treatment. The results provided by our calculators are estimates and should not be used to make medical decisions. <strong>Always consult a qualified healthcare professional</strong> before starting any diet, exercise, or weight loss program.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 FitCalc by WiseClick. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="cookie-banner" id="cookie-banner">
+    <p>We use cookies for analytics and advertising. By continuing, you agree to our <a href="/privacy/">Privacy Policy</a>.</p>
+    <button class="cookie-btn" onclick="document.getElementById('cookie-banner').classList.add('hidden');localStorage.setItem('cookie-consent','1')">Accept</button>
+  </div>
+  <script>if(localStorage.getItem('cookie-consent'))document.getElementById('cookie-banner').classList.add('hidden');</script>
+
+</body>
+</html>
