@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calories Burned Calculator - Exercise &amp; Activity | FitCalc</title>
+  <meta name="description" content="Calculate calories burned during exercise and physical activities. Estimate energy expenditure based on activity type, weight, duration, and intensity using MET values.">
+  <meta name="keywords" content="calories burned calculator, exercise calorie calculator, MET calculator, activity calorie counter, workout calories burned">
+  <link rel="canonical" href="https://fit.wiseclick.site/calories-burned-calculator/">
+  <meta property="og:title" content="Calories Burned Calculator - Exercise & Activity">
+  <meta property="og:description" content="Calculate calories burned during exercise based on activity type, weight, duration, and intensity.">
+  <meta property="og:url" content="https://fit.wiseclick.site/calories-burned-calculator/">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How are calories burned calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Calories burned are estimated using MET (Metabolic Equivalent of Task) values. The formula is: Calories = MET × weight(kg) × duration(hours). MET values represent the energy cost of activities relative to rest."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a MET value?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "MET stands for Metabolic Equivalent of Task. A MET of 1 equals the energy expended at rest. An activity with a MET of 5 burns 5 times more calories than resting. Higher MET values indicate more intense activities."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does intensity affect calories burned?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Exercise intensity modifies the calorie estimate: Light intensity multiplies the result by 0.8, Moderate intensity by 1.0 (standard MET), and Vigorous intensity by 1.2. Higher intensity generally burns more calories per minute."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which exercise burns the most calories?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Among common exercises, jump rope (MET 12.3), running at 6mph (MET 9.8), and stair climbing (MET 9.0) burn the most calories per minute. The actual amount depends on your weight, duration, and intensity."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are calorie burn estimates accurate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "MET-based estimates provide a reasonable approximation but individual calorie burn varies based on fitness level, body composition, exercise form, and environmental conditions. They are useful for general planning and comparison between activities."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calories Burned Calculator",
+    "url": "https://fit.wiseclick.site/calories-burned-calculator/",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      FitCalc
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/tdee-calculator/">TDEE</a></li>
+        <li><a href="/bmi-calculator/">BMI</a></li>
+        <li><a href="/calorie-deficit-calculator/">Calorie Deficit</a></li>
+        <li><a href="/macro-calculator/">Macro</a></li>
+        <li><a href="/body-fat-calculator/">Body Fat</a></li>
+        <li><a href="/protein-calculator/">Protein</a></li>
+        <li><a href="/water-intake-calculator/">Water Intake</a></li>
+        <li><a href="/bmr-calculator/">BMR</a></li>
+        <li><a href="/ideal-weight-calculator/">Ideal Weight</a></li>
+        <li><a href="/calories-burned-calculator/" class="active">Calories Burned</a></li>
+      </ul>
+      <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/tdee-calculator/">TDEE</a></li>
+        <li><a href="/bmi-calculator/">BMI</a></li>
+        <li><a href="/calorie-deficit-calculator/">Calorie Deficit</a></li>
+        <li><a href="/macro-calculator/">Macro</a></li>
+        <li><a href="/body-fat-calculator/">Body Fat</a></li>
+        <li><a href="/protein-calculator/">Protein</a></li>
+        <li><a href="/water-intake-calculator/">Water Intake</a></li>
+        <li><a href="/bmr-calculator/">BMR</a></li>
+        <li><a href="/ideal-weight-calculator/">Ideal Weight</a></li>
+        <li><a href="/calories-burned-calculator/" class="active">Calories Burned</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="calc-page">
+    <div>
+      <nav class="breadcrumb">
+        <a href="/">FitCalc</a>
+        <span>&rsaquo;</span>
+        <span>Calories Burned Calculator</span>
+      </nav>
+      <h1>Calories Burned Calculator</h1>
+      <p class="subtitle">Estimate calories burned during exercise and physical activities based on activity type, weight, and duration.</p>
+      <p style="font-size:0.8125rem;color:var(--text-light);margin-bottom:1rem;">FitCalc provides estimates only, not medical advice. Consult a healthcare professional.</p>
+    </div>
+
+    <div class="calc-tool">
+      <form class="calc-form" id="caloriesForm" onsubmit="return calculateCalories(event)">
+        <div class="form-group">
+          <label for="activity">Activity</label>
+          <select id="activity" required>
+            <option value="">Select activity</option>
+            <option value="walking">Walking (3 mph)</option>
+            <option value="running">Running (6 mph)</option>
+            <option value="cycling">Cycling (12 mph)</option>
+            <option value="swimming">Swimming</option>
+            <option value="jumprope">Jump Rope</option>
+            <option value="yoga">Yoga</option>
+            <option value="weightlifting">Weightlifting</option>
+            <option value="dancing">Dancing</option>
+            <option value="hiking">Hiking</option>
+            <option value="rowing">Rowing</option>
+            <option value="elliptical">Elliptical</option>
+            <option value="tennis">Tennis</option>
+            <option value="basketball">Basketball</option>
+            <option value="soccer">Soccer</option>
+            <option value="stairclimbing">Stair Climbing</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="weight">Weight (kg)</label>
+          <input type="number" id="weight" placeholder="e.g. 70" min="20" max="300" step="0.1" required>
+        </div>
+        <div class="form-group">
+          <label for="duration">Duration (minutes)</label>
+          <input type="number" id="duration" placeholder="e.g. 30" min="1" max="600" required>
+        </div>
+        <div class="form-group">
+          <label for="intensity">Intensity</label>
+          <select id="intensity" required>
+            <option value="">Select</option>
+            <option value="light">Light</option>
+            <option value="moderate">Moderate</option>
+            <option value="vigorous">Vigorous</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-calculate">Calculate Calories Burned</button>
+      </form>
+
+      <div class="calc-results" id="results">
+        <div class="result-highlight">
+          <div class="label">Calories Burned</div>
+          <div class="value" id="caloriesBurned">-</div>
+        </div>
+        <div class="result-details">
+          <div class="result-item">
+            <div class="label">Hourly Burn Rate</div>
+            <div class="value" id="hourlyRate">-</div>
+          </div>
+          <div class="result-item">
+            <div class="label">Equivalent In Food</div>
+            <div class="value" id="foodEquiv">-</div>
+          </div>
+          <div class="result-item">
+            <div class="label">Activity MET Value</div>
+            <div class="value" id="metValue">-</div>
+          </div>
+          <div class="result-item">
+            <div class="label">Intensity Multiplier</div>
+            <div class="value" id="intensityLabel">-</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="seo-content">
+      <div class="seo-block">
+        <h2>How the Calories Burned Calculator Works</h2>
+        <p>This calculator uses <strong>MET (Metabolic Equivalent of Task)</strong> values to estimate the energy cost of physical activities. MET represents the ratio of the work metabolic rate to the resting metabolic rate.</p>
+        <h3>Calculation Formula</h3>
+        <p><strong>Calories = MET &times; weight(kg) &times; duration(hours)</strong></p>
+        <p>The result is then adjusted by an intensity multiplier:</p>
+        <ul>
+          <li><strong>Light intensity:</strong> &times; 0.8</li>
+          <li><strong>Moderate intensity:</strong> &times; 1.0</li>
+          <li><strong>Vigorous intensity:</strong> &times; 1.2</li>
+        </ul>
+        <h3>MET Values Used</h3>
+        <ul>
+          <li>Walking (3 mph): 3.5</li>
+          <li>Running (6 mph): 9.8</li>
+          <li>Cycling (12 mph): 8.0</li>
+          <li>Swimming: 6.0</li>
+          <li>Jump Rope: 12.3</li>
+          <li>Yoga: 3.0</li>
+          <li>Weightlifting: 5.0</li>
+          <li>Dancing: 5.5</li>
+          <li>Hiking: 6.0</li>
+          <li>Rowing: 7.0</li>
+          <li>Elliptical: 5.0</li>
+          <li>Tennis: 7.3</li>
+          <li>Basketball: 6.5</li>
+          <li>Soccer: 7.0</li>
+          <li>Stair Climbing: 9.0</li>
+        </ul>
+      </div>
+
+      <div class="seo-block">
+        <h2>Tips for Maximizing Calorie Burn</h2>
+        <h3>High-Calorie Activities</h3>
+        <ul>
+          <li><strong>Jump rope:</strong> One of the highest calorie-burning activities, great for cardio</li>
+          <li><strong>Running:</strong> Accessible and efficient for burning calories</li>
+          <li><strong>Stair climbing:</strong> Excellent for both cardio and leg strength</li>
+          <li><strong>Cycling:</strong> Low-impact option with high calorie-burning potential</li>
+        </ul>
+        <h3>Optimizing Your Workouts</h3>
+        <ul>
+          <li>Combine cardio and strength training for balanced fitness</li>
+          <li>Increase duration gradually to avoid injury</li>
+          <li>Mix high and moderate intensity for interval training benefits</li>
+          <li>Choose activities you enjoy to maintain consistency</li>
+          <li>Stay hydrated before, during, and after exercise</li>
+        </ul>
+        <h3>Understanding Intensity</h3>
+        <ul>
+          <li><strong>Light:</strong> You can easily hold a conversation (walking, gentle yoga)</li>
+          <li><strong>Moderate:</strong> You can talk but not sing (brisk walking, casual cycling)</li>
+          <li><strong>Vigorous:</strong> You can only say a few words without pausing (running, HIIT)</li>
+        </ul>
+      </div>
+
+      <div class="seo-block full-width">
+        <h2>Frequently Asked Questions</h2>
+        <h3>How are calories burned calculated?</h3>
+        <p>Calories burned are estimated using MET (Metabolic Equivalent of Task) values. The formula is: Calories = MET &times; weight(kg) &times; duration(hours). MET values represent the energy cost of activities relative to rest.</p>
+        <h3>What is a MET value?</h3>
+        <p>MET stands for Metabolic Equivalent of Task. A MET of 1 equals the energy expended at rest. An activity with a MET of 5 burns 5 times more calories than resting. Higher MET values indicate more intense activities.</p>
+        <h3>How does intensity affect calories burned?</h3>
+        <p>Exercise intensity modifies the calorie estimate: Light intensity multiplies the result by 0.8, Moderate intensity by 1.0 (standard MET), and Vigorous intensity by 1.2. Higher intensity generally burns more calories per minute.</p>
+        <h3>Which exercise burns the most calories?</h3>
+        <p>Among common exercises, jump rope (MET 12.3), running at 6mph (MET 9.8), and stair climbing (MET 9.0) burn the most calories per minute. The actual amount depends on your weight, duration, and intensity.</p>
+        <h3>Are calorie burn estimates accurate?</h3>
+        <p>MET-based estimates provide a reasonable approximation but individual calorie burn varies based on fitness level, body composition, exercise form, and environmental conditions. They are useful for general planning and comparison between activities.</p>
+      </div>
+
+      <div class="seo-block full-width">
+        <h2>Disclaimer</h2>
+        <p>The Calories Burned Calculator provides estimates based on standard MET values and intensity multipliers. Results are for informational purposes only and should not be considered medical advice. Actual calorie expenditure varies significantly based on individual fitness level, body composition, exercise technique, environmental conditions, and other factors. Always consult a qualified healthcare professional before starting or modifying an exercise program, especially if you have cardiovascular conditions, joint problems, or other health concerns. FitCalc and WiseClick are not liable for any decisions made based on these calculations.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <ul class="footer-links">
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+      <li><a href="/terms.html">Terms</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 FitCalc by WiseClick</p>
+  </div>
+</footer>
+
+<div class="cookie-banner" id="cookieBanner">
+  <p>We use cookies to improve your experience. By using FitCalc, you agree to our <a href="/privacy.html">Privacy Policy</a>.</p>
+  <button class="cookie-btn" onclick="document.getElementById('cookieBanner').classList.add('hidden')">Accept</button>
+</div>
+
+<script>
+var MET_VALUES = {
+  walking: 3.5,
+  running: 9.8,
+  cycling: 8.0,
+  swimming: 6.0,
+  jumprope: 12.3,
+  yoga: 3.0,
+  weightlifting: 5.0,
+  dancing: 5.5,
+  hiking: 6.0,
+  rowing: 7.0,
+  elliptical: 5.0,
+  tennis: 7.3,
+  basketball: 6.5,
+  soccer: 7.0,
+  stairclimbing: 9.0
+};
+
+function getFoodEquiv(calories) {
+  var items = [];
+  if (calories >= 285) items.push(Math.round(calories / 285) + ' slices of pizza');
+  if (calories >= 100) items.push(Math.round(calories / 100) + ' chocolate chip cookies');
+  if (calories >= 150) items.push(Math.round(calories / 150) + ' cans of soda');
+  if (calories >= 230) items.push(Math.round(calories / 230) + ' donuts');
+  if (calories >= 165) items.push(Math.round(calories / 165) + ' slices of bread');
+  if (calories >= 350) items.push(Math.round(calories / 350) + ' burgers');
+  if (calories >= 130) items.push(Math.round(calories / 130) + ' bananas');
+  if (calories >= 95) items.push(Math.round(calories / 95) + ' eggs');
+  if (items.length === 0) items.push(Math.round(calories) + ' calories');
+  // Pick 2 most interesting comparisons
+  return items.slice(0, 2).join(', ') + ' (approximate)';
+}
+
+function calculateCalories(e) {
+  e.preventDefault();
+  var activity = document.getElementById('activity').value;
+  var weight = parseFloat(document.getElementById('weight').value);
+  var duration = parseInt(document.getElementById('duration').value);
+  var intensity = document.getElementById('intensity').value;
+
+  if (!activity || !weight || !duration || !intensity) return;
+
+  var met = MET_VALUES[activity];
+  var durationHours = duration / 60;
+
+  // Base calories: MET × weight × duration(hours)
+  var calories = met * weight * durationHours;
+
+  // Intensity adjustment
+  var intensityMultiplier = 1.0;
+  var intensityText = '';
+  if (intensity === 'light') { intensityMultiplier = 0.8; intensityText = 'Light (\u00d70.8)'; }
+  else if (intensity === 'moderate') { intensityMultiplier = 1.0; intensityText = 'Moderate (\u00d71.0)'; }
+  else if (intensity === 'vigorous') { intensityMultiplier = 1.2; intensityText = 'Vigorous (\u00d71.2)'; }
+
+  calories *= intensityMultiplier;
+
+  // Hourly rate
+  var hourlyRate = (calories / duration) * 60;
+
+  document.getElementById('caloriesBurned').textContent = Math.round(calories) + ' kcal';
+  document.getElementById('hourlyRate').textContent = Math.round(hourlyRate) + ' kcal/hr';
+  document.getElementById('foodEquiv').textContent = '\u2248 ' + getFoodEquiv(calories);
+  document.getElementById('metValue').textContent = met.toFixed(1);
+  document.getElementById('intensityLabel').textContent = intensityText;
+
+  document.getElementById('results').classList.add('visible');
+  return false;
+}
+</script>
+
+</body>
+</html>
