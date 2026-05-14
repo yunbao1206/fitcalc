@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ideal Weight Calculator - Multiple Formula Comparison | FitCalc</title>
+  <meta name="description" content="Calculate your ideal body weight using four medical formulas: Devine, Robinson, Miller, and Hamwi. Compare results and find your healthy weight range.">
+  <meta name="keywords" content="ideal weight calculator, ideal body weight, Devine formula, Robinson formula, Miller formula, Hamwi formula, healthy weight range">
+  <link rel="canonical" href="https://fit.wiseclick.site/ideal-weight-calculator/">
+  <meta property="og:title" content="Ideal Weight Calculator - Multiple Formula Comparison">
+  <meta property="og:description" content="Compare your ideal body weight across four medical formulas and find your healthy weight range.">
+  <meta property="og:url" content="https://fit.wiseclick.site/ideal-weight-calculator/">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is ideal body weight?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ideal body weight (IBW) is an estimated weight range considered healthy for a person based on their height, gender, and frame size. Several medical formulas exist to calculate it, each with slightly different results."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which ideal weight formula is most accurate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No single formula is universally best. The Devine formula is most widely used in clinical settings. The Robinson and Miller formulas tend to give more modern, moderate estimates. Comparing multiple formulas gives a more balanced picture."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does frame size affect ideal weight?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "People with smaller frames typically have a lower ideal weight, while those with larger frames can healthily carry more weight. Frame size adjustments typically modify the calculated ideal weight by about 10% in either direction."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is ideal weight the same as a healthy weight?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not exactly. Ideal weight formulas give a single target number, while a healthy weight is better represented by a range, such as the BMI healthy range of 18.5-24.9 for your height. Both concepts are useful reference points."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do different formulas give different results?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Each formula was developed by different researchers using different study populations and methodologies. The Devine formula (1974) was designed for medicinal dosing, while Robinson (1983) and Miller (1983) aimed to update estimates for modern populations."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Ideal Weight Calculator",
+    "url": "https://fit.wiseclick.site/ideal-weight-calculator/",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      FitCalc
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/tdee-calculator/">TDEE</a></li>
+        <li><a href="/bmi-calculator/">BMI</a></li>
+        <li><a href="/calorie-deficit-calculator/">Calorie Deficit</a></li>
+        <li><a href="/macro-calculator/">Macro</a></li>
+        <li><a href="/body-fat-calculator/">Body Fat</a></li>
+        <li><a href="/protein-calculator/">Protein</a></li>
+        <li><a href="/water-intake-calculator/">Water Intake</a></li>
+        <li><a href="/bmr-calculator/">BMR</a></li>
+        <li><a href="/ideal-weight-calculator/" class="active">Ideal Weight</a></li>
+        <li><a href="/calories-burned-calculator/">Calories Burned</a></li>
+      </ul>
+      <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/tdee-calculator/">TDEE</a></li>
+        <li><a href="/bmi-calculator/">BMI</a></li>
+        <li><a href="/calorie-deficit-calculator/">Calorie Deficit</a></li>
+        <li><a href="/macro-calculator/">Macro</a></li>
+        <li><a href="/body-fat-calculator/">Body Fat</a></li>
+        <li><a href="/protein-calculator/">Protein</a></li>
+        <li><a href="/water-intake-calculator/">Water Intake</a></li>
+        <li><a href="/bmr-calculator/">BMR</a></li>
+        <li><a href="/ideal-weight-calculator/" class="active">Ideal Weight</a></li>
+        <li><a href="/calories-burned-calculator/">Calories Burned</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="calc-page">
+    <div>
+      <nav class="breadcrumb">
+        <a href="/">FitCalc</a>
+        <span>&rsaquo;</span>
+        <span>Ideal Weight Calculator</span>
+      </nav>
+      <h1>Ideal Weight Calculator</h1>
+      <p class="subtitle">Compare your ideal body weight across four medical formulas and find your healthy weight range.</p>
+      <p style="font-size:0.8125rem;color:var(--text-light);margin-bottom:1rem;">FitCalc provides estimates only, not medical advice. Consult a healthcare professional.</p>
+    </div>
+
+    <div class="calc-tool">
+      <form class="calc-form" id="idealForm" onsubmit="return calculateIdeal(event)">
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select id="gender" required>
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="height">Height (cm)</label>
+          <input type="number" id="height" placeholder="e.g. 175" min="100" max="250" step="0.1" required>
+        </div>
+        <div class="form-group">
+          <label for="frame">Frame Size</label>
+          <select id="frame" required>
+            <option value="">Select</option>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>&nbsp;</label>
+          <!-- spacer -->
+        </div>
+        <button type="submit" class="btn-calculate">Calculate Ideal Weight</button>
+      </form>
+
+      <div class="calc-results" id="results">
+        <div class="result-highlight">
+          <div class="label">Average Ideal Weight</div>
+          <div class="value" id="avgWeight">-</div>
+        </div>
+        <p style="font-size:0.875rem;color:var(--text-secondary);margin-bottom:1rem;text-align:center;">Comparison of four formula results:</p>
+        <div class="result-details">
+          <div class="result-item">
+            <div class="label">Devine Formula</div>
+            <div class="value" id="devine">-</div>
+          </div>
+          <div class="result-item">
+            <div class="label">Robinson Formula</div>
+            <div class="value" id="robinson">-</div>
+          </div>
+          <div class="result-item">
+            <div class="label">Miller Formula</div>
+            <div class="value" id="miller">-</div>
+          </div>
+          <div class="result-item">
+            <div class="label">Hamwi Formula</div>
+            <div class="value" id="hamwi">-</div>
+          </div>
+          <div class="result-item" style="grid-column: 1 / -1;">
+            <div class="label">Healthy BMI Range for Your Height (18.5 - 24.9)</div>
+            <div class="value" id="bmiRange">-</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="seo-content">
+      <div class="seo-block">
+        <h2>How the Ideal Weight Calculator Works</h2>
+        <p>This calculator compares four well-known ideal body weight formulas side by side, giving you a balanced view rather than relying on a single estimate.</p>
+        <h3>The Four Formulas</h3>
+        <ul>
+          <li><strong>Devine (1974):</strong> Male: 50 + 2.3 &times; (height_in - 60). Female: 45.5 + 2.3 &times; (height_in - 60)</li>
+          <li><strong>Robinson (1983):</strong> Male: 52 + 1.9 &times; (height_in - 60). Female: 49 + 1.7 &times; (height_in - 60)</li>
+          <li><strong>Miller (1983):</strong> Male: 56.2 + 1.41 &times; (height_in - 60). Female: 53.1 + 1.36 &times; (height_in - 60)</li>
+          <li><strong>Hamwi (1964):</strong> Male: 48 + 2.7 &times; (height_in - 60). Female: 45.5 + 2.2 &times; (height_in - 60)</li>
+        </ul>
+        <p>Height is converted from cm to inches (cm / 2.54). Frame size adjusts results by -10% for small frames and +10% for large frames.</p>
+      </div>
+
+      <div class="seo-block">
+        <h2>Understanding Frame Size</h2>
+        <p>Body frame size affects what weight is healthy for you. People with the same height can have very different healthy weight ranges depending on their bone structure and frame.</p>
+        <h3>Frame Size Categories</h3>
+        <ul>
+          <li><strong>Small frame:</strong> Adjust ideal weight down by 10%</li>
+          <li><strong>Medium frame:</strong> Use the standard formula result</li>
+          <li><strong>Large frame:</strong> Adjust ideal weight up by 10%</li>
+        </ul>
+        <h3>How to Estimate Frame Size</h3>
+        <ul>
+          <li>Wrap your thumb and middle finger around your wrist</li>
+          <li>If fingers overlap: small frame</li>
+          <li>If fingers just touch: medium frame</li>
+          <li>If fingers do not touch: large frame</li>
+        </ul>
+      </div>
+
+      <div class="seo-block full-width">
+        <h2>Frequently Asked Questions</h2>
+        <h3>What is ideal body weight?</h3>
+        <p>Ideal body weight (IBW) is an estimated weight range considered healthy for a person based on their height, gender, and frame size. Several medical formulas exist to calculate it, each with slightly different results.</p>
+        <h3>Which ideal weight formula is most accurate?</h3>
+        <p>No single formula is universally best. The Devine formula is most widely used in clinical settings. The Robinson and Miller formulas tend to give more modern, moderate estimates. Comparing multiple formulas gives a more balanced picture.</p>
+        <h3>How does frame size affect ideal weight?</h3>
+        <p>People with smaller frames typically have a lower ideal weight, while those with larger frames can healthily carry more weight. Frame size adjustments typically modify the calculated ideal weight by about 10% in either direction.</p>
+        <h3>Is ideal weight the same as a healthy weight?</h3>
+        <p>Not exactly. Ideal weight formulas give a single target number, while a healthy weight is better represented by a range, such as the BMI healthy range of 18.5-24.9 for your height. Both concepts are useful reference points.</p>
+        <h3>Why do different formulas give different results?</h3>
+        <p>Each formula was developed by different researchers using different study populations and methodologies. The Devine formula (1974) was designed for medicinal dosing, while Robinson (1983) and Miller (1983) aimed to update estimates for modern populations.</p>
+      </div>
+
+      <div class="seo-block full-width">
+        <h2>Disclaimer</h2>
+        <p>The Ideal Weight Calculator provides estimates based on established medical formulas. Results are for informational purposes only and should not be considered medical advice. Ideal weight is a simplified concept that does not account for muscle mass, body composition, age, or individual health factors. Always consult a qualified healthcare professional for personalized weight guidance, especially if you have concerns about your weight, an eating disorder, or other health conditions. FitCalc and WiseClick are not liable for any decisions made based on these calculations.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <ul class="footer-links">
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+      <li><a href="/terms.html">Terms</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 FitCalc by WiseClick</p>
+  </div>
+</footer>
+
+<div class="cookie-banner" id="cookieBanner">
+  <p>We use cookies to improve your experience. By using FitCalc, you agree to our <a href="/privacy.html">Privacy Policy</a>.</p>
+  <button class="cookie-btn" onclick="document.getElementById('cookieBanner').classList.add('hidden')">Accept</button>
+</div>
+
+<script>
+function calculateIdeal(e) {
+  e.preventDefault();
+  var gender = document.getElementById('gender').value;
+  var heightCm = parseFloat(document.getElementById('height').value);
+  var frame = document.getElementById('frame').value;
+
+  if (!gender || !heightCm || !frame) return;
+
+  // Convert cm to inches
+  var heightIn = heightCm / 2.54;
+  var over60 = heightIn - 60;
+
+  var devine, robinson, miller, hamwi;
+
+  if (gender === 'male') {
+    devine = 50 + 2.3 * over60;
+    robinson = 52 + 1.9 * over60;
+    miller = 56.2 + 1.41 * over60;
+    hamwi = 48 + 2.7 * over60;
+  } else {
+    devine = 45.5 + 2.3 * over60;
+    robinson = 49 + 1.7 * over60;
+    miller = 53.1 + 1.36 * over60;
+    hamwi = 45.5 + 2.2 * over60;
+  }
+
+  // Frame adjustment
+  var frameMultiplier = 1.0;
+  if (frame === 'small') frameMultiplier = 0.9;
+  else if (frame === 'large') frameMultiplier = 1.1;
+
+  devine *= frameMultiplier;
+  robinson *= frameMultiplier;
+  miller *= frameMultiplier;
+  hamwi *= frameMultiplier;
+
+  var avg = (devine + robinson + miller + hamwi) / 4;
+
+  // Healthy BMI range for height: 18.5 and 24.9
+  var heightM = heightCm / 100;
+  var bmiLow = (18.5 * heightM * heightM).toFixed(1);
+  var bmiHigh = (24.9 * heightM * heightM).toFixed(1);
+
+  document.getElementById('avgWeight').textContent = avg.toFixed(1) + ' kg';
+  document.getElementById('devine').textContent = devine.toFixed(1) + ' kg';
+  document.getElementById('robinson').textContent = robinson.toFixed(1) + ' kg';
+  document.getElementById('miller').textContent = miller.toFixed(1) + ' kg';
+  document.getElementById('hamwi').textContent = hamwi.toFixed(1) + ' kg';
+  document.getElementById('bmiRange').textContent = bmiLow + ' - ' + bmiHigh + ' kg';
+
+  document.getElementById('results').classList.add('visible');
+  return false;
+}
+</script>
+
+</body>
+</html>
