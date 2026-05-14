@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Intake Calculator - Daily Hydration Needs | FitCalc</title>
+  <meta name="description" content="Calculate your ideal daily water intake based on weight, activity level, and climate. Get personalized hydration recommendations in liters, ounces, and glasses.">
+  <meta name="keywords" content="water intake calculator, daily hydration needs, how much water to drink, hydration calculator, water calculator by weight">
+  <link rel="canonical" href="https://fit.wiseclick.site/water-intake-calculator/">
+  <meta property="og:title" content="Water Intake Calculator - Daily Hydration Needs">
+  <meta property="og:description" content="Calculate your ideal daily water intake based on weight, activity level, and climate.">
+  <meta property="og:url" content="https://fit.wiseclick.site/water-intake-calculator/">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much water should I drink per day?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A common guideline is to drink about 0.033 liters per kilogram of body weight daily. For a 70 kg person, that equals roughly 2.3 liters. Your actual needs vary based on activity level, climate, and individual factors."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does exercise increase water requirements?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Physical activity increases water loss through sweat. Moderately active individuals may need about 20% more water, while highly active individuals may need 40% or more above their base requirement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does food count toward daily water intake?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Approximately 20% of your daily hydration comes from water-rich foods like fruits, vegetables, soups, and dairy products. The remaining 80% should come from beverages and drinking water."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does hot weather affect water needs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Hot climates increase sweating and water loss. In hot weather, your water intake may need to increase by about 15% above your calculated base requirement to stay properly hydrated."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are signs of dehydration?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Common signs include thirst, dark-colored urine, dry mouth, fatigue, dizziness, and headache. If you experience persistent symptoms, consult a healthcare professional."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Water Intake Calculator",
+    "url": "https://fit.wiseclick.site/water-intake-calculator/",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      FitCalc
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/tdee-calculator/">TDEE</a></li>
+        <li><a href="/bmi-calculator/">BMI</a></li>
+        <li><a href="/calorie-deficit-calculator/">Calorie Deficit</a></li>
+        <li><a href="/macro-calculator/">Macro</a></li>
+        <li><a href="/body-fat-calculator/">Body Fat</a></li>
+        <li><a href="/protein-calculator/">Protein</a></li>
+        <li><a href="/water-intake-calculator/" class="active">Water Intake</a></li>
+        <li><a href="/bmr-calculator/">BMR</a></li>
+        <li><a href="/ideal-weight-calculator/">Ideal Weight</a></li>
+        <li><a href="/calories-burned-calculator/">Calories Burned</a></li>
+      </ul>
+      <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/tdee-calculator/">TDEE</a></li>
+        <li><a href="/bmi-calculator/">BMI</a></li>
+        <li><a href="/calorie-deficit-calculator/">Calorie Deficit</a></li>
+        <li><a href="/macro-calculator/">Macro</a></li>
+        <li><a href="/body-fat-calculator/">Body Fat</a></li>
+        <li><a href="/protein-calculator/">Protein</a></li>
+        <li><a href="/water-intake-calculator/" class="active">Water Intake</a></li>
+        <li><a href="/bmr-calculator/">BMR</a></li>
+        <li><a href="/ideal-weight-calculator/">Ideal Weight</a></li>
+        <li><a href="/calories-burned-calculator/">Calories Burned</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="calc-page">
+    <div>
+      <nav class="breadcrumb">
+        <a href="/">FitCalc</a>
+        <span>&rsaquo;</span>
+        <span>Water Intake Calculator</span>
+      </nav>
+      <h1>Water Intake Calculator</h1>
+      <p class="subtitle">Calculate your daily hydration needs based on your body weight, activity level, and climate.</p>
+      <p style="font-size:0.8125rem;color:var(--text-light);margin-bottom:1rem;">FitCalc provides estimates only, not medical advice. Consult a healthcare professional.</p>
+    </div>
+
+    <div class="calc-tool">
+      <form class="calc-form" id="waterForm" onsubmit="return calculateWater(event)">
+        <div class="form-group">
+          <label for="weight">Weight (kg)</label>
+          <input type="number" id="weight" placeholder="e.g. 70" min="20" max="300" step="0.1" required>
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select id="gender" required>
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="activity">Activity Level</label>
+          <select id="activity" required>
+            <option value="">Select</option>
+            <option value="sedentary">Sedentary</option>
+            <option value="moderate">Moderate</option>
+            <option value="active">Active</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="climate">Climate</label>
+          <select id="climate" required>
+            <option value="">Select</option>
+            <option value="cold">Cold</option>
+            <option value="temperate">Temperate</option>
+            <option value="hot">Hot</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-calculate">Calculate Daily Water Intake</button>
+      </form>
+
+      <div class="calc-results" id="results">
+        <div class="result-highlight">
+          <div class="label">Daily Water Intake</div>
+          <div class="value" id="waterLiters">-</div>
+        </div>
+        <div class="result-details">
+          <div class="result-item">
+            <div class="label">In Ounces</div>
+            <div class="value" id="waterOz">-</div>
+          </div>
+          <div class="result-item">
+            <div class="label">Glasses (250ml each)</div>
+            <div class="value" id="waterGlasses">-</div>
+          </div>
+          <div class="result-item">
+            <div class="label">From Beverages (~80%)</div>
+            <div class="value" id="waterBeverage">-</div>
+          </div>
+          <div class="result-item">
+            <div class="label">From Food (~20%)</div>
+            <div class="value" id="waterFood">-</div>
+          </div>
+        </div>
+        <p style="font-size:0.8125rem;color:var(--text-light);margin-top:1rem;">Note: Approximately 20% of your daily hydration comes from water-rich foods like fruits, vegetables, and soups. Adjust intake based on thirst and urine color.</p>
+      </div>
+    </div>
+
+    <div class="seo-content">
+      <div class="seo-block">
+        <h2>How the Water Intake Calculator Works</h2>
+        <p>Our calculator uses a scientifically-backed formula to estimate your daily hydration needs. The base calculation multiplies your body weight in kilograms by 0.033 liters, then adjusts based on your activity level and climate conditions.</p>
+        <h3>Calculation Method</h3>
+        <ul>
+          <li><strong>Base intake:</strong> Body weight (kg) &times; 0.033 liters</li>
+          <li><strong>Sedentary activity:</strong> Base &times; 1.0 (no adjustment)</li>
+          <li><strong>Moderate activity:</strong> Base &times; 1.2</li>
+          <li><strong>Active lifestyle:</strong> Base &times; 1.4</li>
+          <li><strong>Hot climate adjustment:</strong> Result &times; 1.15</li>
+        </ul>
+        <p>These guidelines provide a reasonable starting point. Individual needs vary based on health conditions, medications, and personal factors.</p>
+      </div>
+
+      <div class="seo-block">
+        <h2>Factors That Affect Hydration Needs</h2>
+        <ul>
+          <li><strong>Body weight:</strong> Larger bodies require more water for metabolic processes</li>
+          <li><strong>Physical activity:</strong> Exercise increases fluid loss through perspiration</li>
+          <li><strong>Climate and temperature:</strong> Hot and humid conditions increase water loss</li>
+          <li><strong>Altitude:</strong> Higher altitudes can increase fluid needs</li>
+          <li><strong>Diet:</strong> High-protein or high-sodium diets may require more water</li>
+          <li><strong>Health conditions:</strong> Fever, illness, and certain medications affect hydration</li>
+        </ul>
+        <h3>Tips for Staying Hydrated</h3>
+        <ul>
+          <li>Carry a reusable water bottle throughout the day</li>
+          <li>Drink water before, during, and after exercise</li>
+          <li>Set reminders if you tend to forget to drink water</li>
+          <li>Eat water-rich foods like watermelon, cucumber, and oranges</li>
+          <li>Monitor urine color as a hydration indicator</li>
+        </ul>
+      </div>
+
+      <div class="seo-block full-width">
+        <h2>Frequently Asked Questions</h2>
+        <h3>How much water should I drink per day?</h3>
+        <p>A common guideline is to drink about 0.033 liters per kilogram of body weight daily. For a 70 kg person, that equals roughly 2.3 liters. Your actual needs vary based on activity level, climate, and individual factors.</p>
+        <h3>Does exercise increase water requirements?</h3>
+        <p>Yes. Physical activity increases water loss through sweat. Moderately active individuals may need about 20% more water, while highly active individuals may need 40% or more above their base requirement.</p>
+        <h3>Does food count toward daily water intake?</h3>
+        <p>Yes. Approximately 20% of your daily hydration comes from water-rich foods like fruits, vegetables, soups, and dairy products. The remaining 80% should come from beverages and drinking water.</p>
+        <h3>How does hot weather affect water needs?</h3>
+        <p>Hot climates increase sweating and water loss. In hot weather, your water intake may need to increase by about 15% above your calculated base requirement to stay properly hydrated.</p>
+        <h3>What are signs of dehydration?</h3>
+        <p>Common signs include thirst, dark-colored urine, dry mouth, fatigue, dizziness, and headache. If you experience persistent symptoms, consult a healthcare professional.</p>
+      </div>
+
+      <div class="seo-block full-width">
+        <h2>Disclaimer</h2>
+        <p>The Water Intake Calculator provides general hydration estimates based on commonly used formulas. Results are for informational purposes only and should not be considered medical advice. Individual hydration needs vary based on health status, medications, and other factors. Always consult a qualified healthcare professional before making significant changes to your hydration habits, especially if you have kidney disease, heart conditions, or are taking medications that affect fluid balance. FitCalc and WiseClick are not liable for any decisions made based on these calculations.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <ul class="footer-links">
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+      <li><a href="/terms.html">Terms</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 FitCalc by WiseClick</p>
+  </div>
+</footer>
+
+<div class="cookie-banner" id="cookieBanner">
+  <p>We use cookies to improve your experience. By using FitCalc, you agree to our <a href="/privacy.html">Privacy Policy</a>.</p>
+  <button class="cookie-btn" onclick="document.getElementById('cookieBanner').classList.add('hidden')">Accept</button>
+</div>
+
+<script>
+function calculateWater(e) {
+  e.preventDefault();
+  var weight = parseFloat(document.getElementById('weight').value);
+  var gender = document.getElementById('gender').value;
+  var activity = document.getElementById('activity').value;
+  var climate = document.getElementById('climate').value;
+
+  if (!weight || !gender || !activity || !climate) return;
+
+  // Base: weight × 0.033
+  var baseWater = weight * 0.033;
+
+  // Activity multiplier
+  var activityMultiplier = 1.0;
+  if (activity === 'moderate') activityMultiplier = 1.2;
+  else if (activity === 'active') activityMultiplier = 1.4;
+
+  var water = baseWater * activityMultiplier;
+
+  // Climate adjustment: hot × 1.15
+  if (climate === 'hot') water *= 1.15;
+
+  var waterOz = water * 33.814;
+  var glasses = Math.ceil(water / 0.25);
+  var beverage = water * 0.8;
+  var food = water * 0.2;
+
+  document.getElementById('waterLiters').textContent = water.toFixed(2) + ' liters';
+  document.getElementById('waterOz').textContent = waterOz.toFixed(1) + ' oz';
+  document.getElementById('waterGlasses').textContent = glasses + ' glasses';
+  document.getElementById('waterBeverage').textContent = beverage.toFixed(2) + ' L';
+  document.getElementById('waterFood').textContent = food.toFixed(2) + ' L';
+
+  document.getElementById('results').classList.add('visible');
+  return false;
+}
+</script>
+
+</body>
+</html>
