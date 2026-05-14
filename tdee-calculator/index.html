@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TDEE Calculator - Total Daily Energy Expenditure</title>
+  <meta name="description" content="Free TDEE calculator. Calculate your Total Daily Energy Expenditure using the Mifflin-St Jeor equation. Find your maintenance calories.">
+  <meta name="keywords" content="TDEE calculator, total daily energy expenditure, maintenance calories, calorie calculator, Mifflin-St Jeor">
+  <link rel="canonical" href="https://fit.wiseclick.site/tdee-calculator/">
+  <meta property="og:title" content="TDEE Calculator - Total Daily Energy Expenditure">
+  <meta property="og:description" content="Calculate your Total Daily Energy Expenditure using the Mifflin-St Jeor equation. Free and accurate.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "TDEE Calculator",
+    "description": "Free TDEE calculator using the Mifflin-St Jeor equation",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is TDEE?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "TDEE stands for Total Daily Energy Expenditure. It represents the total number of calories your body burns in a day, including your basal metabolic rate (BMR), physical activity, and the thermic effect of food."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which equation does this calculator use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This calculator uses the Mifflin-St Jeor equation, which is widely regarded as the most accurate formula for estimating BMR in healthy adults. TDEE is then calculated by multiplying BMR by an activity factor."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many calories should I eat to lose weight?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A common approach is to eat 500 calories below your TDEE to lose approximately 0.5 kg (1 lb) per week. However, individual results vary and you should consult a healthcare professional for personalized guidance."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        FitCalc
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/tdee-calculator/" class="active">TDEE</a></li>
+        <li><a href="/bmi-calculator/">BMI</a></li>
+        <li><a href="/calorie-deficit-calculator/">Calorie Deficit</a></li>
+        <li><a href="/macro-calculator/">Macro</a></li>
+        <li><a href="/body-fat-calculator/">Body Fat</a></li>
+        <li><a href="/protein-calculator/">Protein</a></li>
+        <li><a href="/water-intake-calculator/">Water Intake</a></li>
+        <li><a href="/bmr-calculator/">BMR</a></li>
+        <li><a href="/ideal-weight-calculator/">Ideal Weight</a></li>
+        <li><a href="/calories-burned-calculator/">Calories Burned</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumb">
+      <a href="/">Home</a> / <span>TDEE Calculator</span>
+    </nav>
+
+    <div class="calc-page">
+      <h1>TDEE Calculator</h1>
+      <p class="subtitle">Calculate your Total Daily Energy Expenditure to find your maintenance calories.</p>
+      <p style="font-size:0.8125rem;color:var(--text-light);margin-top:-0.75rem;margin-bottom:1.5rem;">FitCalc provides estimates only, not medical advice. Consult a healthcare professional.</p>
+
+      <div class="calc-tool">
+        <form class="calc-form" id="tdee-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender">
+              <option value="male" selected>Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" value="30" min="18" max="100">
+          </div>
+          <div class="form-group">
+            <label for="height">Height (cm)</label>
+            <input type="number" id="height" value="170" min="100" max="250">
+          </div>
+          <div class="form-group">
+            <label for="weight">Weight (kg)</label>
+            <input type="number" id="weight" value="70" min="30" max="300">
+          </div>
+          <div class="form-group">
+            <label for="activity">Activity Level</label>
+            <select id="activity">
+              <option value="1.2">Sedentary (little or no exercise)</option>
+              <option value="1.375">Light (exercise 1-2 days/week)</option>
+              <option value="1.55" selected>Moderate (exercise 3-5 days/week)</option>
+              <option value="1.725">Heavy (exercise 6-7 days/week)</option>
+              <option value="1.9">Athlete (2x per day)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="goal">Goal</label>
+            <select id="goal">
+              <option value="lose">Lose Weight</option>
+              <option value="maintain" selected>Maintain</option>
+              <option value="gain">Gain Muscle</option>
+            </select>
+          </div>
+          <button type="button" class="btn-calculate" onclick="calculateTDEE()">Calculate TDEE</button>
+        </form>
+
+        <div class="calc-results" id="results">
+          <div class="result-highlight">
+            <div class="label">Your TDEE</div>
+            <div class="value" id="tdee-value">0 kcal/day</div>
+          </div>
+          <div class="result-details">
+            <div class="result-item">
+              <div class="label">BMR (Basal Metabolic Rate)</div>
+              <div class="value" id="bmr-value">0 kcal/day</div>
+            </div>
+            <div class="result-item">
+              <div class="label">Calories for Your Goal</div>
+              <div class="value" id="goal-value">0 kcal/day</div>
+            </div>
+            <div class="result-item">
+              <div class="label">Est. Weekly Weight Change</div>
+              <div class="value" id="weekly-change">0 kg/week</div>
+            </div>
+            <div class="result-item">
+              <div class="label">Activity Multiplier</div>
+              <div class="value" id="activity-mult">x1.55</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="seo-content">
+        <div class="seo-block">
+          <h2>How TDEE Is Calculated</h2>
+          <p>This calculator uses the <strong>Mifflin-St Jeor equation</strong>, considered one of the most accurate formulas for estimating Basal Metabolic Rate (BMR):</p>
+          <ul>
+            <li><strong>Male:</strong> BMR = 10 &times; weight(kg) + 6.25 &times; height(cm) &minus; 5 &times; age + 5</li>
+            <li><strong>Female:</strong> BMR = 10 &times; weight(kg) + 6.25 &times; height(cm) &minus; 5 &times; age &minus; 161</li>
+          </ul>
+          <p>Your TDEE is then calculated by multiplying your BMR by an activity multiplier:</p>
+          <ul>
+            <li>Sedentary: BMR &times; 1.2</li>
+            <li>Light activity (1-2 days/week): BMR &times; 1.375</li>
+            <li>Moderate activity (3-5 days/week): BMR &times; 1.55</li>
+            <li>Heavy activity (6-7 days/week): BMR &times; 1.725</li>
+            <li>Athlete (2x per day): BMR &times; 1.9</li>
+          </ul>
+        </div>
+        <div class="seo-block">
+          <h2>Understanding Your TDEE</h2>
+          <p>Your TDEE represents the total calories your body needs to maintain its current weight at your current activity level. Here is how to use it:</p>
+          <ul>
+            <li><strong>To lose weight:</strong> Eat 300-500 calories below your TDEE for a gradual, sustainable rate of about 0.5 kg per week.</li>
+            <li><strong>To maintain weight:</strong> Eat at your TDEE level.</li>
+            <li><strong>To gain muscle:</strong> Eat 200-300 calories above your TDEE combined with resistance training.</li>
+          </ul>
+          <p>TDEE is an estimate based on population averages. Your actual calorie needs may differ based on metabolism, body composition, genetics, and other factors. Track your progress and adjust accordingly.</p>
+        </div>
+        <div class="seo-block full-width">
+          <h2>Frequently Asked Questions</h2>
+          <h3>What is TDEE?</h3>
+          <p>TDEE stands for Total Daily Energy Expenditure. It represents the total number of calories your body burns in a day, including your basal metabolic rate (BMR), physical activity, and the thermic effect of food. Knowing your TDEE is the foundation for any weight management plan.</p>
+          <h3>Which equation does this calculator use?</h3>
+          <p>This calculator uses the Mifflin-St Jeor equation, which research has shown to be the most accurate formula for estimating BMR in healthy adults when compared to indirect calorimetry. TDEE is then calculated by multiplying BMR by an activity factor that corresponds to your exercise habits.</p>
+          <h3>How many calories should I eat to lose weight?</h3>
+          <p>A common approach is to eat 500 calories below your TDEE, which typically results in about 0.5 kg (1 lb) of weight loss per week. However, individual results vary based on many factors including metabolism, adherence, and starting body composition. You should consult a healthcare professional for personalized guidance.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="seo-block full-width" style="background:var(--bg-secondary);border-style:dashed;margin-top:1rem">
+      <h2>Disclaimer</h2>
+      <p>This calculator is for <strong>educational and informational purposes only</strong>. It provides estimates based on general formulas and is not a substitute for professional medical advice, diagnosis, or guidance. Individual calorie needs vary based on factors not captured by any formula. Always consult a qualified healthcare provider before starting any diet or exercise program.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 FitCalc by WiseClick. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+  function calculateTDEE() {
+    const gender = document.getElementById('gender').value;
+    const age = parseFloat(document.getElementById('age').value);
+    const height = parseFloat(document.getElementById('height').value);
+    const weight = parseFloat(document.getElementById('weight').value);
+    const activityMult = parseFloat(document.getElementById('activity').value);
+    const goal = document.getElementById('goal').value;
+
+    if (!age || !height || !weight) return;
+
+    // Mifflin-St Jeor equation
+    let bmr;
+    if (gender === 'male') {
+      bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+    } else {
+      bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+    }
+
+    const tdee = bmr * activityMult;
+    let goalCalories, weeklyChange;
+
+    if (goal === 'lose') {
+      goalCalories = tdee - 500;
+      weeklyChange = -0.5;
+    } else if (goal === 'gain') {
+      goalCalories = tdee + 300;
+      weeklyChange = 0.3;
+    } else {
+      goalCalories = tdee;
+      weeklyChange = 0;
+    }
+
+    const fmt = v => Math.round(v).toLocaleString('en-US');
+
+    document.getElementById('tdee-value').textContent = fmt(tdee) + ' kcal/day';
+    document.getElementById('bmr-value').textContent = fmt(bmr) + ' kcal/day';
+    document.getElementById('goal-value').textContent = fmt(goalCalories) + ' kcal/day';
+    document.getElementById('weekly-change').textContent = weeklyChange + ' kg/week';
+    document.getElementById('activity-mult').textContent = 'x' + activityMult;
+
+    document.getElementById('results').classList.add('visible');
+  }
+
+  calculateTDEE();
+  </script>
+
+  <div class="cookie-banner" id="cookie-banner">
+    <p>We use cookies for analytics and advertising. By continuing, you agree to our <a href="/privacy/">Privacy Policy</a>.</p>
+    <button class="cookie-btn" onclick="document.getElementById('cookie-banner').classList.add('hidden');localStorage.setItem('cookie-consent','1')">Accept</button>
+  </div>
+  <script>if(localStorage.getItem('cookie-consent'))document.getElementById('cookie-banner').classList.add('hidden');</script>
+
+</body>
+</html>
