@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Macro Calculator - Protein, Carbs & Fat Targets | FitCalc</title>
+  <meta name="description" content="Free macro calculator. Calculate your personalized protein, carbs, and fat targets based on your TDEE, fitness goal, and preferred diet style.">
+  <meta name="keywords" content="macro calculator, macronutrient calculator, protein carbs fat calculator, IIFYM calculator, keto macros, low carb macros">
+  <link rel="canonical" href="https://fit.wiseclick.site/macro-calculator/">
+  <meta property="og:title" content="Macro Calculator - Protein, Carbs & Fat Targets">
+  <meta property="og:description" content="Calculate your personalized macronutrient targets for fat loss, maintenance, or muscle building. Free and easy to use.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Macro Calculator",
+    "description": "Free macronutrient calculator for protein, carbs, and fat targets",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fit.wiseclick.site/" },
+      { "@type": "ListItem", "position": 2, "name": "Macro Calculator", "item": "https://fit.wiseclick.site/macro-calculator/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How do I calculate my macros?", "acceptedAnswer": { "@type": "Answer", "text": "First calculate your TDEE using the Mifflin-St Jeor equation adjusted for activity level. Then adjust calories based on your goal (deficit for fat loss, surplus for muscle gain). Finally, split calories into protein (4 cal/g), carbs (4 cal/g), and fat (9 cal/g) using ratios that match your diet style." } },
+      { "@type": "Question", "name": "What is the best macro split for weight loss?", "acceptedAnswer": { "@type": "Answer", "text": "For weight loss, a balanced split of 30% protein, 40% carbs, and 30% fat works well for most people. A high protein split (40% protein, 35% carbs, 25% fat) can help preserve muscle during a calorie deficit." } },
+      { "@type": "Question", "name": "What are the keto macro ratios?", "acceptedAnswer": { "@type": "Answer", "text": "A standard ketogenic diet uses approximately 25% protein, 5% carbs, and 70% fat. This keeps daily net carbs very low (typically under 20-50g) to maintain ketosis." } },
+      { "@type": "Question", "name": "Should I track macros or just calories?", "acceptedAnswer": { "@type": "Answer", "text": "While calories determine whether you lose or gain weight, macros determine the quality of that change. Tracking macros ensures you get enough protein to preserve muscle, enough fat for hormones, and enough carbs for energy." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        FitCalc
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/tdee-calculator/">TDEE</a></li>
+        <li><a href="/bmi-calculator/">BMI</a></li>
+        <li><a href="/calorie-deficit-calculator/">Calorie Deficit</a></li>
+        <li><a href="/macro-calculator/" class="active">Macro</a></li>
+        <li><a href="/body-fat-calculator/">Body Fat</a></li>
+        <li><a href="/protein-calculator/">Protein</a></li>
+        <li><a href="/water-intake-calculator/">Water Intake</a></li>
+        <li><a href="/bmr-calculator/">BMR</a></li>
+        <li><a href="/ideal-weight-calculator/">Ideal Weight</a></li>
+        <li><a href="/calories-burned-calculator/">Calories Burned</a></li>
+      </ul>
+    </div>
+  </header>
+  <main>
+    <nav class="breadcrumb"><a href="/">Home</a> / <span>Macro Calculator</span></nav>
+    <div class="calc-page">
+      <h1>Macro Calculator</h1>
+      <p class="subtitle">Get personalized protein, carbs, and fat targets based on your goals and diet style.</p>
+      <p style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.5rem">FitCalc provides estimates only, not medical advice. Consult a healthcare professional.</p>
+      <div class="calc-tool">
+        <form class="calc-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" value="30" min="18" max="100">
+          </div>
+          <div class="form-group">
+            <label for="height">Height (cm)</label>
+            <input type="number" id="height" value="170" min="100" max="250">
+          </div>
+          <div class="form-group">
+            <label for="weight">Weight (kg)</label>
+            <input type="number" id="weight" value="70" min="30" max="300">
+          </div>
+          <div class="form-group">
+            <label for="activity">Activity Level</label>
+            <select id="activity">
+              <option value="1.2">Sedentary (little or no exercise)</option>
+              <option value="1.375">Light (1-3 days/week)</option>
+              <option value="1.55" selected>Moderate (3-5 days/week)</option>
+              <option value="1.725">Heavy (6-7 days/week)</option>
+              <option value="1.9">Athlete (2x per day)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="goal">Goal</label>
+            <select id="goal">
+              <option value="lose">Lose Fat</option>
+              <option value="maintain" selected>Maintain</option>
+              <option value="gain">Build Muscle</option>
+            </select>
+          </div>
+          <div class="form-group full-width">
+            <label for="diet-style">Diet Style</label>
+            <select id="diet-style">
+              <option value="balanced" selected>Balanced</option>
+              <option value="lowcarb">Low Carb</option>
+              <option value="highprotein">High Protein</option>
+              <option value="keto">Keto</option>
+            </select>
+          </div>
+          <button type="button" class="btn-calculate" onclick="calculate()">Calculate Macros</button>
+        </form>
+        <div class="calc-results" id="results">
+          <div class="result-highlight">
+            <div class="label">Daily Calories</div>
+            <div class="value" id="daily-calories">0 kcal</div>
+          </div>
+          <div class="result-details">
+            <div class="result-item" style="grid-column:1/-1;background:var(--primary-light)">
+              <div class="label" style="color:var(--primary);font-weight:600">Protein</div>
+              <div class="value" id="protein-grams">0g <span style="font-size:0.8rem;color:var(--text-secondary)">(0 kcal — 0%)</span></div>
+            </div>
+            <div class="result-item" style="grid-column:1/-1;background:var(--primary-light)">
+              <div class="label" style="color:var(--primary);font-weight:600">Carbs</div>
+              <div class="value" id="carb-grams">0g <span style="font-size:0.8rem;color:var(--text-secondary)">(0 kcal — 0%)</span></div>
+            </div>
+            <div class="result-item" style="grid-column:1/-1;background:var(--primary-light)">
+              <div class="label" style="color:var(--primary);font-weight:600">Fat</div>
+              <div class="value" id="fat-grams">0g <span style="font-size:0.8rem;color:var(--text-secondary)">(0 kcal — 0%)</span></div>
+            </div>
+            <div class="result-item"><div class="label">TDEE</div><div class="value" id="tdee-value">0 kcal</div></div>
+            <div class="result-item"><div class="label">Goal Adjustment</div><div class="value" id="goal-adjustment">0 kcal</div></div>
+            <div class="result-item"><div class="label">Protein/Carbs/Fat Split</div><div class="value" id="macro-split">0/0/0%</div></div>
+            <div class="result-item"><div class="label">Diet Style</div><div class="value" id="diet-label">Balanced</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="seo-content">
+        <div class="seo-block">
+          <h2>Understanding Macronutrients</h2>
+          <p>Macronutrients are the three main components of food that provide energy:</p>
+          <ul>
+            <li><strong>Protein (4 cal/g)</strong> — Essential for muscle repair, immune function, and satiety. Aim for 1.6-2.2g per kg of body weight when building muscle.</li>
+            <li><strong>Carbohydrates (4 cal/g)</strong> — Your body's primary energy source, especially important for high-intensity exercise and brain function.</li>
+            <li><strong>Fat (9 cal/g)</strong> — Crucial for hormone production, vitamin absorption, and long-lasting energy. Never eliminate dietary fat completely.</li>
+          </ul>
+        </div>
+        <div class="seo-block">
+          <h2>Diet Styles Explained</h2>
+          <ul>
+            <li><strong>Balanced (30P/40C/30F)</strong> — A sustainable approach suitable for most people. Provides enough protein for maintenance while allowing flexible food choices.</li>
+            <li><strong>Low Carb (35P/25C/40F)</strong> — Reduces carbohydrate intake while increasing fat. Can help with blood sugar management and steady energy levels.</li>
+            <li><strong>High Protein (40P/35C/25F)</strong> — Prioritizes protein for muscle retention during fat loss or muscle building. Ideal for active individuals.</li>
+            <li><strong>Keto (25P/5C/70F)</strong> — A very low-carb approach designed to induce ketosis. Carbs are kept to approximately 5% of total calories.</li>
+          </ul>
+        </div>
+        <div class="seo-block full-width">
+          <h2>Frequently Asked Questions</h2>
+          <h3>How do I calculate my macros?</h3>
+          <p>First calculate your TDEE using the Mifflin-St Jeor equation adjusted for activity level. Then adjust calories based on your goal (deficit for fat loss, surplus for muscle gain). Finally, split calories into protein (4 cal/g), carbs (4 cal/g), and fat (9 cal/g) using ratios that match your diet style.</p>
+          <h3>What is the best macro split for weight loss?</h3>
+          <p>For weight loss, a balanced split of 30% protein, 40% carbs, and 30% fat works well for most people. A high protein split (40% protein, 35% carbs, 25% fat) can help preserve muscle during a calorie deficit.</p>
+          <h3>What are the keto macro ratios?</h3>
+          <p>A standard ketogenic diet uses approximately 25% protein, 5% carbs, and 70% fat. This keeps daily net carbs very low (typically under 20-50g) to maintain ketosis.</p>
+          <h3>Should I track macros or just calories?</h3>
+          <p>While calories determine whether you lose or gain weight, macros determine the quality of that change. Tracking macros ensures you get enough protein to preserve muscle, enough fat for hormones, and enough carbs for energy.</p>
+        </div>
+        <div class="seo-block full-width" style="background:var(--bg-secondary);border-style:dashed;margin-top:1rem">
+          <h2>Disclaimer</h2>
+          <p>This calculator is for <strong>educational purposes only</strong> and provides estimates based on standard formulas. Results are not medical advice and should not be used for diagnosis or treatment. Individual nutritional needs vary based on health conditions, medications, and other factors. Always consult a qualified healthcare provider or registered dietitian before making significant changes to your diet.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 FitCalc by WiseClick. All rights reserved.</p>
+    </div>
+  </footer>
+<script>
+function calculate() {
+  const gender = document.getElementById('gender').value;
+  const age = parseInt(document.getElementById('age').value) || 30;
+  const height = parseFloat(document.getElementById('height').value) || 170;
+  const weight = parseFloat(document.getElementById('weight').value) || 70;
+  const activity = parseFloat(document.getElementById('activity').value) || 1.55;
+  const goal = document.getElementById('goal').value;
+  const dietStyle = document.getElementById('diet-style').value;
+
+  // Mifflin-St Jeor equation for BMR
+  let bmr;
+  if (gender === 'male') {
+    bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+  } else {
+    bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+  }
+
+  const tdee = Math.round(bmr * activity);
+
+  // Goal adjustment
+  let adjustedCalories = tdee;
+  let goalText = 'Maintenance (0 kcal)';
+  if (goal === 'lose') {
+    adjustedCalories = tdee - 500;
+    goalText = 'Deficit (-500 kcal)';
+  } else if (goal === 'gain') {
+    adjustedCalories = tdee + 300;
+    goalText = 'Surplus (+300 kcal)';
+  }
+
+  // Macro splits by diet style
+  const splits = {
+    balanced:    { p: 0.30, c: 0.40, f: 0.30, label: 'Balanced (30/40/30)' },
+    lowcarb:     { p: 0.35, c: 0.25, f: 0.40, label: 'Low Carb (35/25/40)' },
+    highprotein: { p: 0.40, c: 0.35, f: 0.25, label: 'High Protein (40/35/25)' },
+    keto:        { p: 0.25, c: 0.05, f: 0.70, label: 'Keto (25/5/70)' }
+  };
+
+  const split = splits[dietStyle];
+
+  // Calculate macros: protein=4cal/g, carbs=4cal/g, fat=9cal/g
+  const proteinCal = adjustedCalories * split.p;
+  const carbCal = adjustedCalories * split.c;
+  const fatCal = adjustedCalories * split.f;
+
+  const proteinG = Math.round(proteinCal / 4);
+  const carbG = Math.round(carbCal / 4);
+  const fatG = Math.round(fatCal / 9);
+
+  // Percentages (recalculated from grams for accuracy)
+  const totalCalFromMacros = proteinG * 4 + carbG * 4 + fatG * 9;
+  const pPct = Math.round((proteinG * 4 / totalCalFromMacros) * 100);
+  const cPct = Math.round((carbG * 4 / totalCalFromMacros) * 100);
+  const fPct = 100 - pPct - cPct;
+
+  // Update DOM
+  document.getElementById('daily-calories').textContent = adjustedCalories.toLocaleString() + ' kcal';
+  document.getElementById('tdee-value').textContent = tdee.toLocaleString() + ' kcal';
+  document.getElementById('goal-adjustment').textContent = goalText;
+  document.getElementById('protein-grams').innerHTML = proteinG + 'g <span style="font-size:0.8rem;color:var(--text-secondary)">(' + (proteinG * 4) + ' kcal — ' + pPct + '%)</span>';
+  document.getElementById('carb-grams').innerHTML = carbG + 'g <span style="font-size:0.8rem;color:var(--text-secondary)">(' + (carbG * 4) + ' kcal — ' + cPct + '%)</span>';
+  document.getElementById('fat-grams').innerHTML = fatG + 'g <span style="font-size:0.8rem;color:var(--text-secondary)">(' + (fatG * 9) + ' kcal — ' + fPct + '%)</span>';
+  document.getElementById('macro-split').textContent = pPct + '/' + cPct + '/' + fPct + '%';
+  document.getElementById('diet-label').textContent = split.label;
+
+  document.getElementById('results').classList.add('visible');
+}
+calculate();
+</script>
+
+  <div class="cookie-banner" id="cookie-banner">
+    <p>We use cookies for analytics and advertising. By continuing, you agree to our <a href="/privacy/">Privacy Policy</a>.</p>
+    <button class="cookie-btn" onclick="document.getElementById('cookie-banner').classList.add('hidden');localStorage.setItem('cookie-consent','1')">Accept</button>
+  </div>
+  <script>if(localStorage.getItem('cookie-consent'))document.getElementById('cookie-banner').classList.add('hidden');</script>
+</body>
+</html>
