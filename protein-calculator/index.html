@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Protein Calculator - Daily Protein Intake | FitCalc</title>
+  <meta name="description" content="Free protein calculator. Find your optimal daily protein intake based on weight, activity level, fitness goals, and diet type.">
+  <meta name="keywords" content="protein calculator, daily protein intake, how much protein per day, protein per kg, protein for muscle building, protein for fat loss">
+  <link rel="canonical" href="https://fit.wiseclick.site/protein-calculator/">
+  <meta property="og:title" content="Protein Calculator - Daily Protein Intake">
+  <meta property="og:description" content="Calculate your optimal daily protein intake based on your weight, activity, and goals. Free and easy to use.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Protein Calculator",
+    "description": "Free daily protein intake calculator based on weight, activity level, and goals",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fit.wiseclick.site/" },
+      { "@type": "ListItem", "position": 2, "name": "Protein Calculator", "item": "https://fit.wiseclick.site/protein-calculator/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much protein do I need per day?", "acceptedAnswer": { "@type": "Answer", "text": "The RDA recommends 0.8g per kg of body weight for sedentary adults. Active individuals need 1.0-1.6g per kg, and those building muscle may benefit from 1.6-2.2g per kg." } },
+      { "@type": "Question", "name": "Do vegetarians and vegans need more protein?", "acceptedAnswer": { "@type": "Answer", "text": "Plant-based proteins are often less bioavailable than animal proteins. Vegetarians may benefit from 10% more protein and vegans from 15% more to compensate for lower digestibility and incomplete amino acid profiles." } },
+      { "@type": "Question", "name": "When is the best time to eat protein?", "acceptedAnswer": { "@type": "Answer", "text": "Spread your protein intake across 3-4 meals throughout the day. Aim for 0.25-0.4g per kg of body weight per meal to maximize muscle protein synthesis." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+        FitCalc
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/tdee-calculator/">TDEE</a></li>
+        <li><a href="/bmi-calculator/">BMI</a></li>
+        <li><a href="/calorie-deficit-calculator/">Calorie Deficit</a></li>
+        <li><a href="/macro-calculator/">Macro</a></li>
+        <li><a href="/body-fat-calculator/">Body Fat</a></li>
+        <li><a href="/protein-calculator/" class="active">Protein</a></li>
+        <li><a href="/water-intake-calculator/">Water Intake</a></li>
+        <li><a href="/bmr-calculator/">BMR</a></li>
+        <li><a href="/ideal-weight-calculator/">Ideal Weight</a></li>
+        <li><a href="/calories-burned-calculator/">Calories Burned</a></li>
+      </ul>
+    </div>
+  </header>
+  <main>
+    <nav class="breadcrumb"><a href="/">Home</a> / <span>Protein Calculator</span></nav>
+    <div class="calc-page">
+      <h1>Protein Calculator - Daily Protein Intake</h1>
+      <p class="subtitle">Find your optimal daily protein intake based on your body weight, activity level, and fitness goals.</p>
+      <p style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.5rem">FitCalc provides estimates only, not medical advice. Consult a healthcare professional.</p>
+      <div class="calc-tool">
+        <form class="calc-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="weight">Weight (kg)</label>
+            <input type="number" id="weight" value="70" min="30" max="300">
+          </div>
+          <div class="form-group">
+            <label for="activity">Activity Level</label>
+            <select id="activity">
+              <option value="sedentary">Sedentary</option>
+              <option value="light">Light</option>
+              <option value="moderate" selected>Moderate</option>
+              <option value="active">Active</option>
+              <option value="very-active">Very Active</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="goal">Goal</label>
+            <select id="goal">
+              <option value="general" selected>General Health</option>
+              <option value="build">Muscle Building</option>
+              <option value="fat-loss">Fat Loss</option>
+              <option value="athletic">Athletic Performance</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="diet">Diet</label>
+            <select id="diet">
+              <option value="omnivore" selected>Omnivore</option>
+              <option value="vegetarian">Vegetarian</option>
+              <option value="vegan">Vegan</option>
+            </select>
+          </div>
+          <button type="button" class="btn-calculate" onclick="calculate()">Calculate Protein</button>
+        </form>
+        <div class="calc-results" id="results">
+          <div class="result-highlight">
+            <div class="label">Daily Protein Target</div>
+            <div class="value" id="daily-protein">0 g</div>
+          </div>
+          <div class="result-details">
+            <div class="result-item"><div class="label">Per Meal (4 meals)</div><div class="value" id="per-meal">0 g</div></div>
+            <div class="result-item"><div class="label">Per Kg of Body Weight</div><div class="value" id="per-kg">0 g</div></div>
+            <div class="result-item"><div class="label">Weekly Protein Target</div><div class="value" id="weekly-protein">0 g</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="seo-content">
+        <div class="seo-block">
+          <h2>How Much Protein Do You Need?</h2>
+          <p>Protein is essential for muscle repair, hormone production, immune function, and overall health. Your ideal protein intake depends on your body weight, how active you are, and what you are trying to achieve.</p>
+          <h3>Activity-Based Multipliers</h3>
+          <ul>
+            <li><strong>Sedentary</strong> — 0.8g per kg (minimum RDA recommendation)</li>
+            <li><strong>Lightly active</strong> — 1.0g per kg</li>
+            <li><strong>Moderately active</strong> — 1.2g per kg</li>
+            <li><strong>Active</strong> — 1.4g per kg</li>
+            <li><strong>Very active</strong> — 1.6g per kg</li>
+          </ul>
+        </div>
+        <div class="seo-block">
+          <h2>Adjusting for Goals and Diet</h2>
+          <h3>Goal Adjustments</h3>
+          <ul>
+            <li><strong>General health</strong> — Base multiplier (x1.0)</li>
+            <li><strong>Muscle building</strong> — x1.2 increase for muscle protein synthesis</li>
+            <li><strong>Fat loss</strong> — x1.3 increase to preserve lean mass in a deficit</li>
+            <li><strong>Athletic performance</strong> — x1.4 increase for recovery and performance</li>
+          </ul>
+          <h3>Dietary Adjustments</h3>
+          <ul>
+            <li><strong>Vegetarian</strong> — +10% to compensate for lower bioavailability</li>
+            <li><strong>Vegan</strong> — +15% to compensate for incomplete amino acid profiles</li>
+          </ul>
+        </div>
+        <div class="seo-block full-width">
+          <h2>Frequently Asked Questions</h2>
+          <h3>How much protein do I need per day?</h3>
+          <p>The RDA recommends 0.8g per kg of body weight for sedentary adults. Active individuals need 1.0-1.6g per kg, and those building muscle may benefit from 1.6-2.2g per kg.</p>
+          <h3>Do vegetarians and vegans need more protein?</h3>
+          <p>Plant-based proteins are often less bioavailable than animal proteins. Vegetarians may benefit from 10% more protein and vegans from 15% more to compensate for lower digestibility and incomplete amino acid profiles.</p>
+          <h3>When is the best time to eat protein?</h3>
+          <p>Spread your protein intake across 3-4 meals throughout the day. Aim for 0.25-0.4g per kg of body weight per meal to maximize muscle protein synthesis.</p>
+        </div>
+        <div class="seo-block full-width" style="background:var(--bg-secondary);border-style:dashed;margin-top:1rem">
+          <h2>Disclaimer</h2>
+          <p>This calculator provides estimates based on general nutritional guidelines and is for <strong>educational purposes only</strong>. FitCalc provides estimates only, not medical advice. Individual protein needs vary based on health conditions, medications, and other factors. Consult a healthcare professional or registered dietitian for personalized nutrition advice.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 FitCalc by WiseClick. All rights reserved.</p>
+    </div>
+  </footer>
+<script>
+function calculate() {
+  var weight = parseFloat(document.getElementById('weight').value) || 70;
+  var activity = document.getElementById('activity').value;
+  var goal = document.getElementById('goal').value;
+  var diet = document.getElementById('diet').value;
+
+  var activityMultipliers = {
+    'sedentary': 0.8,
+    'light': 1.0,
+    'moderate': 1.2,
+    'active': 1.4,
+    'very-active': 1.6
+  };
+
+  var goalMultipliers = {
+    'general': 1.0,
+    'build': 1.2,
+    'fat-loss': 1.3,
+    'athletic': 1.4
+  };
+
+  var baseProtein = weight * activityMultipliers[activity];
+  var adjustedProtein = baseProtein * goalMultipliers[goal];
+
+  if (diet === 'vegetarian') {
+    adjustedProtein *= 1.10;
+  } else if (diet === 'vegan') {
+    adjustedProtein *= 1.15;
+  }
+
+  var dailyProtein = Math.round(adjustedProtein);
+  var perMeal = Math.round(dailyProtein / 4);
+  var perKg = (dailyProtein / weight).toFixed(1);
+  var weeklyProtein = dailyProtein * 7;
+
+  document.getElementById('daily-protein').textContent = dailyProtein + ' g';
+  document.getElementById('per-meal').textContent = perMeal + ' g';
+  document.getElementById('per-kg').textContent = perKg + ' g/kg';
+  document.getElementById('weekly-protein').textContent = weeklyProtein.toLocaleString() + ' g';
+  document.getElementById('results').classList.add('visible');
+}
+calculate();
+</script>
+
+  <div class="cookie-banner" id="cookie-banner">
+    <p>We use cookies for analytics and advertising. <a href="/privacy/">Learn more</a>. You can accept or reject non-essential cookies.</p>
+    <button class="cookie-btn" onclick="document.getElementById('cookie-banner').classList.add('hidden');localStorage.setItem('cookie-consent','1')">Accept</button>
+    <button class="cookie-btn cookie-reject" onclick="document.getElementById('cookie-banner').classList.add('hidden');localStorage.setItem('cookie-consent','0')">Reject</button>
+  </div>
+  <script>if(localStorage.getItem('cookie-consent')!==null)document.getElementById('cookie-banner').classList.add('hidden');</script>
+</body>
+</html>
